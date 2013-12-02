@@ -499,7 +499,7 @@ class YouTubeIt
       end
 
       def get_watch_history
-        watch_history_url = "/feeds/api/users/default/watch_history?v=#{YouTubeIt::API_VERSION}"
+        watch_history_url = "/feeds/api/users/default/watch_history?v=#{YouTubeIt::API_VERSION}&max-results=50"
         response = yt_session.get(watch_history_url)
 
         return YouTubeIt::Parser::VideosFeedParser.new(response.body).parse
